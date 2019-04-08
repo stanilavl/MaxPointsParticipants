@@ -11,7 +11,7 @@ public abstract class AbstractRepo <E extends hasID<ID>,ID> implements CrudRepo<
     private Map<ID,E> repo;
     public AbstractRepo(Validator<E> v){
         validator=v;
-        repo=new HashMap<>();
+        //repo=new HashMap<>();
     }
 
     /***
@@ -23,7 +23,7 @@ public abstract class AbstractRepo <E extends hasID<ID>,ID> implements CrudRepo<
         String msg=validator.validate(el);
         if(msg.equals("")){
             E el2=findOne(el.getID());
-            repo.putIfAbsent(el.getID(),el);
+            //repo.putIfAbsent(el.getID(),el);
             return el2;
         }
         else throw new ValidationException(msg);
